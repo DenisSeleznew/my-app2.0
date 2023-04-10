@@ -18,18 +18,14 @@ const CountersList = () => {
 	};
 
 	const handleIncrement = count => {
-		const newIncrement = counters.filter(
-			count => count.value !== count,
-			(count.value += 1)
-		);
+		const newIncrement = [...counters];
+		newIncrement.map(item => item.value === count, (count.value += 1));
 		setCounters(newIncrement);
 	};
 	const handleDecrement = count => {
-		const newDecrement = counters.filter(
-			item => item.value !== count,
-			(count.value -= 1)
-		);
-		setCounters(newDecrement);
+		const newIncrement = [...counters];
+		newIncrement.map(item => item.value === count, (count.value -= 1));
+		setCounters(newIncrement);
 	};
 
 	const handleReset = () => {
