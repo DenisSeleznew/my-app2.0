@@ -18,14 +18,33 @@ const CountersList = () => {
 	};
 
 	const handleIncrement = count => {
-		const newIncrement = [...counters];
-		newIncrement.map(item => item.value === count, (count.value += 1));
-		setCounters(newIncrement);
+		const newIncrement = (count.value += 1);
+		setCounters(
+			counters.map(obj => {
+				if (count === count.id) {
+					return {
+						...obj,
+						value: newIncrement,
+					};
+				}
+				return obj;
+			})
+		);
 	};
 	const handleDecrement = count => {
-		const newIncrement = [...counters];
-		newIncrement.map(item => item.value === count, (count.value -= 1));
-		setCounters(newIncrement);
+		const newIncrement = (count.value -= 1);
+
+		setCounters(
+			counters.map(obj => {
+				if (count === count.id) {
+					return {
+						...obj,
+						value: newIncrement,
+					};
+				}
+				return obj;
+			})
+		);
 	};
 
 	const handleReset = () => {
